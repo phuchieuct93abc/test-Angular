@@ -44,7 +44,10 @@ export class HeroService {
     return this.httpClient.delete<Hero>(`${herosUrl}/${hero.id}`);
   }  
   searchHeroes(name:string):Observable<Hero[]>{
-    return this.httpClient.get<Hero[]>(`${herosUrl}/?name=${name}`);
+    console.log("saerch hero");
+    return this.httpClient.get<Hero[]>(`${herosUrl}/?name=${name}`).pipe(
+      tap(heroes=>this.messageService.add(`Search here ${heroes}`))
+    );
   }
   handleError<T>(operation: string = "operation", value?: T) {
     return (error, observable: Observable<T>): ObservableInput<T> => {

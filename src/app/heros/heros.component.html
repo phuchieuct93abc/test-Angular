@@ -1,4 +1,6 @@
-<div> Heros
+<div> 
+        <mat-spinner *ngIf="heros==undefined"></mat-spinner>
+
     <ul class="heroes">
         <li *ngFor="let hero of heros" class="hero-item">
             <a routerLink="/detail/{{hero.id}}" routerLinkActive="router-link-active" >
