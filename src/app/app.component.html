@@ -1,10 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-<app-heros></app-heros>
-<app-messages></app-messages>
+  <nav>
+    <a [routerLink]="['/']" routerLinkActive="router-link-active">Dashboard</a>
+    <a [routerLink]="['/heroes']" routerLinkActive="router-link-active">Heroes</a>
+  </nav>
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
 </div>
-
-
