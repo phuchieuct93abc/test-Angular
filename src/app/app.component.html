@@ -9,6 +9,20 @@
 
 
   </nav>
-  <router-outlet></router-outlet>
-  <app-messages></app-messages>
+  <mat-form-field>
+    <input type="text" [placeholder]="title" [(ngModel)]="title" matInput />
+  </mat-form-field>
+
+  <!-- <router-outlet></router-outlet>
+  <app-messages></app-messages> -->
+</div>
+<div class="container">
+  <div class="row"> 
+    <div class="col-xs-12">
+      <h3>App Component here</h3>
+          <app-servers></app-servers>
+
+    </div>
+  </div>
+
 </div>

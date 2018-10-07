@@ -15,6 +15,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as MD from '@angular/material';
 import { MaterialModule } from './material.module';
+import { ServersComponent } from './servers/servers.component';
+import ServerComponent from './server/server.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import { MaterialModule } from './material.module';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    ServersComponent,
+    ServerComponent
+    
   ],
   imports: [
     BrowserModule,
