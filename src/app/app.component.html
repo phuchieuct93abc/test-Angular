@@ -1,26 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <nav>
-  </nav>
-
-  <nav mat-tab-nav-bar>
-    <a mat-tab-link [routerLink]="['/dashboard']" routerLinkActive #dashboard="routerLinkActive" [active]="dashboard.isActive">Dashboard</a>
-    <a mat-tab-link [routerLink]="['/heroes']" routerLinkActive #heroes="routerLinkActive" [active]="heroes.isActive">Heroes</a>
-
-
-  </nav>
-  <mat-form-field>
-    <input type="text" [placeholder]="title" [(ngModel)]="title" matInput />
-  </mat-form-field>
-
-  <!-- <router-outlet></router-outlet>
-  <app-messages></app-messages> -->
-</div>
+  
 <div class="container">
   <div class="row"> 
-    <div class="col-xs-12">
-      <h3>App Component here</h3>
-          <app-servers></app-servers>
+    <div class="col-6">
+      App Component here
+      <app-header></app-header>
 
     </div>
   </div>

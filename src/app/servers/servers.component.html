@@ -1,9 +1,0 @@
-
-   <button (click)="onCreateServer()" [disabled]="!allowAddNewServer" mat-button color="primary">Add server</button>
-   <!-- <mat-form-field>
-     <input  [(ngModel)]="allowAddNewServer" matInput/> 
-</mat-form-field> -->
-<p>{{serverName}}</p>
-<input type="text" class="form-control" [(ngModel)]="serverName"/>
-    <mat-checkbox color="primary"  [(ngModel)]="allowAddNewServer">Checked</mat-checkbox>
-   <app-server [(value)]="allowAddNewServer"></app-server>
