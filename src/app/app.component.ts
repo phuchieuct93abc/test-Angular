@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
- title:string = 'Lam phuc Hieu';
- ngOnInit(): void {
-  this.title="Hồ Huỳnh Thị Phương Thuý"   
- }
+  title = 'Lam phuc Hieu';
+
+  constructor() {
+    this.title = 'Hồ Huỳnh Thị Phương Thuý';
+  }
 }
