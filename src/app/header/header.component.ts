@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
     templateUrl:"./header.component.html",
     selector:"app-header"
 })
-export class Header{
+export class HeaderComponent{
     title:string="Header here"
     constructor(){
 
