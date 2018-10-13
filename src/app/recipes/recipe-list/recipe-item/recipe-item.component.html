@@ -1,3 +1,18 @@
-<p>
-  recipe-item works!
-</p>
+<mat-card class="example-card">
+
+    <mat-card-content>
+      <div class="row">
+
+        <div class="col-8">
+  
+          <mat-card-title>{{recipe.name}}</mat-card-title>
+          <mat-card-subtitle>{{recipe.description}}</mat-card-subtitle>
+        </div>
+        <div class="col-4">
+          <img  [src]="recipe.imagePath" class="recipe-img img-fluid" alt="Photo of a Shiba Inu">
+  
+        </div>
+      </div>
+
+    </mat-card-content>
+</mat-card>

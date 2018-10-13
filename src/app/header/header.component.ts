@@ -1,12 +1,13 @@
-import { Component } from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-    templateUrl:"./header.component.html",
-    selector:"app-header"
+  templateUrl: './header.component.html',
+  selector: 'app-header'
 })
-export class HeaderComponent{
-    title:string="Header here"
-    constructor(){
+export class HeaderComponent {
+  title = 'Header here';
 
-    }
+  constructor() {
+    this.title = 'header';
+  }
 }
