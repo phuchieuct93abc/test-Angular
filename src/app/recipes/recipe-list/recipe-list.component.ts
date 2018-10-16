@@ -1,5 +1,7 @@
+import { RecipeService } from './../../shared/recipe.service';
 import { Recipe } from './../recipe.model';
 import { Component, OnInit } from '@angular/core';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-recipe-list',
@@ -9,12 +11,23 @@ import { Component, OnInit } from '@angular/core';
 export class RecipeListComponent implements OnInit {
 
   recipes: Recipe[] = [
-    new Recipe("Recipe name", "desc", "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fimg1.southernliving.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2F2018%2F02%2Fmain%2F2548601_qfsba_rice_with_scallops_152.jpg%3Fitok%3Dqvkz_lUq&w=1600&q=70"),
-    new Recipe("Recipe name", "desc", "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fimg1.southernliving.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2F2018%2F02%2Fmain%2F2548601_qfsba_rice_with_scallops_152.jpg%3Fitok%3Dqvkz_lUq&w=1600&q=70")
+    new Recipe('Recipe name', 'desc', 'https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fimg1.southernliving.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2F2018%2F02%2Fmain%2F2548601_qfsba_rice_with_scallops_152.jpg%3Fitok%3Dqvkz_lUq&w=1600&q=70'),
+    new Recipe('Recipe name', 'desc', 'https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fimg1.southernliving.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2F2018%2F02%2Fmain%2F2548601_qfsba_rice_with_scallops_152.jpg%3Fitok%3Dqvkz_lUq&w=1600&q=70')
   ];
-  constructor() { }
+
+  recipedAddedSubscriber: Subscriber<Recipe>;
+  constructor(private recipeService: RecipeService) {
+    this.recipedAddedSubscriber = new Subscriber(subscriber => {
+      this.onRecipedAdded(subscriber);
+    });
+    recipeService.subscribeRecipeAdded(this.recipedAddedSubscriber);
+  }
 
   ngOnInit() {
   }
+  onRecipedAdded(recipe: Recipe) {
+    this.recipes.push(recipe);
+  }
+
 
 }

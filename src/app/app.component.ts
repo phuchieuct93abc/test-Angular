@@ -1,14 +1,17 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'Lam phuc Hieu';
-
-  constructor() {
-    this.title = 'Hồ Huỳnh Thị Phương Thuý';
+export class AppComponent implements OnInit {
+  selectedFeature = 'recipe';
+  constructor() { }
+  ngOnInit(): void {
   }
+  featureSelected(feature: string) {
+    this.selectedFeature = feature;
+  }
+
 }
