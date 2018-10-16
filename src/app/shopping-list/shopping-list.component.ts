@@ -8,12 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[] = [
-    new Ingredient("Apple", 10),
-    new Ingredient("Banana", 20)
-  ]
+    new Ingredient('Apple', 10),
+    new Ingredient('Banana', 20)
+  ];
+  ingredient: Ingredient = new Ingredient('', 0);
   constructor() { }
 
   ngOnInit() {
   }
+  onSelecteIngredient(ingredient: Ingredient) {
+    this.ingredient = ingredient;
+  }
+  ingredientAdded(newIngredient: Ingredient) {
+    this.ingredients.push(newIngredient);
+  }
+  ingredientDeleted(deletedIngredient: Ingredient) {
+    const index = this.ingredients.indexOf(deletedIngredient);
+    this.ingredients.splice(index, 1);
+
+  }
+
+
 
 }

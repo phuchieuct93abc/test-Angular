@@ -1,14 +1,20 @@
 <div class="row">
   <div class="col-12">
-    <app-shopping-edit></app-shopping-edit>
+    <app-shopping-edit 
+    (ingredientAdded)="ingredientAdded($event)" 
+    (ingredientDeleted)="ingredientDeleted($event)"
+    [ingredient]="ingredient"
+    ></app-shopping-edit>
   </div>
 
   <div class="col-12">
 
     <ul class="list-group">
 
-      <a href="#" class="list-group-item" style="cursor:pointer" *ngFor="let ingredient of ingredients">
-        {{ingredient.name}} {{ingredient.amount}}
+      <a href="#" class="list-group-item" style="cursor:pointer" 
+      *ngFor="let ingredient of ingredients"
+      (click)="onSelecteIngredient(ingredient)">
+        {{ingredient.name}} ({{ingredient.amount}})
       </a>
     </ul>
   </div>

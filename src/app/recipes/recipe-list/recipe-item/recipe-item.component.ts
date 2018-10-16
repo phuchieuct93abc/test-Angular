@@ -20,7 +20,6 @@ export class RecipeItemComponent implements OnInit {
     this.newRecipe = new Recipe(null, null, null);
   }
   onAddRecipe() {
-    // this.recipeAdded.emit(this.newRecipe);
     this.recipeService.registerRecipeCreated().next(this.newRecipe);
     this.newRecipe = new Recipe(null, null, null);
   }

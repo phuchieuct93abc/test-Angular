@@ -1,33 +1,23 @@
-<div class="row">
-  <div class="col-12">
-    <img src="" alt="" class="img-responsive">
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <h1>Recipe name</h1>
 
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-
-    <div class="btn-group">
-      <button class="btn btn-primary dropdown-toggle">
-        Manage recipe
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="">Add Ingeredient to Shopping list</a></li>
-        <li><a href="">Edit recipe</a></li>
-        <li><a href="">Delete recipe</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">Description</div>
-</div>
-<div class="row">
-  <div class="col-12">Ingredient</div>
-</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{recipe.name}}</mat-card-title>
+    <mat-card-subtitle>subtitle</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      <img [src]="recipe.imagePath" alt="" class="img-">
+      <div>{{recipe.description}}</div>
+      
+      <div class="btn-group">
+          <button class="btn btn-primary dropdown-toggle">
+            Manage recipe
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="">Add Ingeredient to Shopping list</a></li>
+            <li><a href="">Edit recipe</a></li>
+            <li><a href="">Delete recipe</a></li>
+          </ul>
+        </div>
+  </mat-card-content>
+</mat-card>
