@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 
 //Angular Material Components
-import {MatCheckboxModule} from '@angular/material';
+import {MatCheckboxModule, MatRippleModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -66,7 +66,8 @@ const modules = [
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatRippleModule
     
 
   ]

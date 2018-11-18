@@ -8,6 +8,7 @@
 </mat-divider>
 <div class="row">
     <div class="col-12">
+        
         <div *ngFor="let recipe of recipes" (click)="onSelectedRecipe(recipe)">
             <app-recipe-item [recipe]="recipe" (recipeAdded)="onRecipedAdded($event)">
                 <div>Content here {{recipe.name}}</div>

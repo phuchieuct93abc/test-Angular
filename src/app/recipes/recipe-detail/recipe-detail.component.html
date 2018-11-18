@@ -19,5 +19,12 @@
         <a class="dropdown-item" href="#">elete recipe</a>
       </div>
     </div>
+    Ingredients:
+    <ul class="list-group"  >
+
+      <a class="list-group-item" *ngFor="let ingredient of recipe.ingredients" matRipple>
+          {{ingredient.name}} {{ingredient.amount}}
+      </a>
+    </ul>
   </mat-card-content>
 </mat-card>

@@ -7,11 +7,19 @@ import { Injectable } from '@angular/core';
     }
 )
 export class IngredientService {
-    ingredients: Ingredient[] = [
+
+    ingredientUpdated = new Subject<Ingredient[]>();
+    private ingredients: Ingredient[] = [
         new Ingredient('Apple', 10),
         new Ingredient('Banana', 20)
     ];
-    ingredientAddedSubject = new Subject<Ingredient>();
-    ingredientDeletedSubject = new Subject<Ingredient>();
+    getIngredient(): Ingredient[] {
+        return this.ingredients.slice();
+    }
+    addIngredient(ingredient: Ingredient) {
+        this.ingredients.push(ingredient);
+        this.ingredientUpdated.next(this.getIngredient());
+    }
+
 
 }
