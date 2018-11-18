@@ -3,6 +3,9 @@
         <button mat-raised-button color="primary" (click)="onNewRecipe()">New Recipe</button>
     </div>
 </div>
+<mat-divider class="mt-2 mb-2"
+    [vertical]="false">
+</mat-divider>
 <div class="row">
     <div class="col-12">
         <div *ngFor="let recipe of recipes" (click)="onSelectedRecipe(recipe)">

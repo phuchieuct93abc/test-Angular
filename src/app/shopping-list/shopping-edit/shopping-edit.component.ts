@@ -1,4 +1,4 @@
-import { IngredientService, IngredientService } from './../../services/ingredient.service';
+import { IngredientService } from './../../services/ingredient.service';
 import { Ingredient } from './../../shared/ingredient.model';
 import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
