@@ -1,23 +1,23 @@
-
 <mat-card>
   <mat-card-header>
     <mat-card-title>{{recipe.name}}</mat-card-title>
     <mat-card-subtitle>subtitle</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-      <img [src]="recipe.imagePath" alt="" class="img-">
-      <div>{{recipe.description}}</div>
-      
-      <div class="btn-group">
-          <button class="btn btn-primary dropdown-toggle">
-            Manage recipe
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="">Add Ingeredient to Shopping list</a></li>
-            <li><a href="">Edit recipe</a></li>
-            <li><a href="">Delete recipe</a></li>
-          </ul>
-        </div>
+    <img [src]="recipe.imagePath" alt="" class="img-">
+    <div>{{recipe.description}}</div>
+
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Add Ingeredient to Shopping list</a>
+        <a class="dropdown-item" href="#">Edit recipe</a>
+        <a class="dropdown-item" href="#">elete recipe</a>
+      </div>
+    </div>
   </mat-card-content>
 </mat-card>

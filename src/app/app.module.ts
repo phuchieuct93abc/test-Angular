@@ -16,6 +16,8 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { HightLightDirective } from './directive/hightlight.directive';
+import DropdownDirective from './directive/dropdown.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,13 +27,13 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     RecipeDetailComponent,
     RecipeItemComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
-    
+    ShoppingEditComponent,
+    HightLightDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-  
     MaterialModule,
     FormsModule,
     AppRoutingModule,
