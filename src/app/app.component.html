@@ -4,9 +4,10 @@
   <app-header (featureSelected)="featureSelected($event)"></app-header>
 
 <div class="container">
-
+  <router-outlet></router-outlet>
+  <!-- 
   <app-recipes *ngIf="selectedFeature === 'recipe' "></app-recipes>
-  <app-shopping-list *ngIf="selectedFeature === 'shopping-list' "></app-shopping-list>
+  <app-shopping-list *ngIf="selectedFeature === 'shopping-list' "></app-shopping-list> -->
 </div>
 
 </div>

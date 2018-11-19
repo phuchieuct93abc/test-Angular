@@ -6,12 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  selectedFeature = 'recipe';
   constructor() { }
   ngOnInit(): void {
-  }
-  featureSelected(feature: string) {
-    this.selectedFeature = feature;
   }
 
 }
