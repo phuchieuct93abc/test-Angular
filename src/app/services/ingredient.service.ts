@@ -20,6 +20,10 @@ export class IngredientService {
         this.ingredients.push(ingredient);
         this.ingredientUpdated.next(this.getIngredient());
     }
+    addIngredients(ingredients: Ingredient[]) {
+        this.ingredients.push(...ingredients);
+        this.ingredientUpdated.next(this.getIngredient());
 
+    }
 
 }
