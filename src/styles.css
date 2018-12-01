@@ -28,3 +28,12 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .mat-card .lmat-ripple-element {
   margin-bottom: 0;
 }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
