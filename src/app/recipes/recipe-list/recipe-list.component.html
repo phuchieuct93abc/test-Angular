@@ -1,20 +1,11 @@
 <div class="row">
-    <div class="col-12">
-      <button mat-raised-button color="primary">New Recipe</button>
+  <div class="col-12">
+
+    <div *ngFor="let recipe of recipes">
+      <app-recipe-item [recipe]="recipe">
+        <div>Content here {{recipe.name}}</div>
+      </app-recipe-item>
+
     </div>
-</div>
-
-<mat-divider class="mt-2 mb-2"
-    [vertical]="false">
-</mat-divider>
-<div class="row">
-    <div class="col-12">
-
-      <div *ngFor="let recipe of recipes" >
-          <app-recipe-item [recipe]="recipe">
-                <div>Content here {{recipe.name}}</div>
-            </app-recipe-item>
-
-      </div>
-    </div>
+  </div>
 </div>
