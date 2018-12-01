@@ -1,8 +1,6 @@
-import { RecipeService } from './../../services/recipe.service';
-import { Recipe } from './../recipe.model';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Subscriber } from 'rxjs';
-import LogService from '../../services/log.service';
+import {RecipeService} from './../../services/recipe.service';
+import {Recipe} from './../recipe.model';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-recipe-list',
@@ -18,7 +16,7 @@ export class RecipeListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.recipes = this.recipeService.getRecipe();
+    this.recipes = this.recipeService.getRecipes();
   }
 
 
