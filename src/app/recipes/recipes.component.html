@@ -1,13 +1,14 @@
-<div class="row">
+<div>
+  <a routerLink="new" mat-button color="primary">New Recipe</a>
+</div>
+
+
+<div class="row mt-1">
   <div class="col-md-5">
     <app-recipe-list></app-recipe-list>
   </div>
   <div class="col-md-7">
     <router-outlet></router-outlet>
-    <!--<app-recipe-detail *ngIf="recipe;else pleaseSelectRecipe" [recipe]="recipe"></app-recipe-detail>-->
-    <!--<ng-template #pleaseSelectRecipe>-->
-    <!--Please select recipe-->
-    <!--</ng-template>-->
 
   </div>
 </div>

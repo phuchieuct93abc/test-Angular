@@ -1,4 +1,4 @@
-<mat-card *ngIf="recipe">
+<mat-card *ngIf="recipe;else noRecipe">
   <mat-card-header>
     <mat-card-title>{{recipe.name}}</mat-card-title>
     <mat-card-subtitle>subtitle</mat-card-subtitle>
@@ -10,7 +10,7 @@
 
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
+              aria-haspopup="true" aria-expanded="false">
         Dropdown button
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -20,11 +20,15 @@
       </div>
     </div>
     Ingredients:
-    <ul class="list-group"  >
+    <ul class="list-group">
 
       <a class="list-group-item" *ngFor="let ingredient of recipe.ingredients" matRipple>
-          {{ingredient.name}} {{ingredient.amount}}
+        {{ingredient.name}} {{ingredient.amount}}
       </a>
     </ul>
   </mat-card-content>
+  <mat-card-footer>
+    <a mat-button color="primary" routerLink="edit">Edit</a>
+  </mat-card-footer>
 </mat-card>
+<ng-template #noRecipe>No recipe found</ng-template>

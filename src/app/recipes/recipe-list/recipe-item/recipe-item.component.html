@@ -1,24 +1,16 @@
-<mat-card class="example-card" matRipple [routerLink]="[recipe.id]">
+<div class="example-card">
 
-  <mat-card-content>
     <div class="row">
-
       <div class="col-8">
-
-        <mat-card-title>{{recipe.name}}</mat-card-title>
-        <mat-card-subtitle>{{recipe.description}}</mat-card-subtitle>
+        <div>{{recipe.name}}</div>
+        <div>{{recipe.description}}</div>
       </div>
+
       <div class="col-4">
         <img [src]="recipe.imagePath" class="recipe-img img-fluid" alt="Photo of a Shiba Inu">
-
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-12">
-        <ng-content></ng-content>
-      </div>
-    </div>
-  </mat-card-content>
-</mat-card>
+
+</div>
 
