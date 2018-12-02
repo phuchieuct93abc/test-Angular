@@ -11,7 +11,6 @@ const routes: Routes = [
     path: 'recipe', component: RecipesComponent, children: [
       {path: 'new', component: RecipeEditComponent},
       {path: ':id', component: RecipeDetailComponent},
-      {path: '', component: RecipeDetailComponent},
       {path: ':id/edit', component: RecipeEditComponent}
     ]
   },

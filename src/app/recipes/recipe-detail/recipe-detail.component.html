@@ -15,7 +15,7 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="#" (click)="addIngredients()">Add Ingeredient to Shopping list</a>
-        <a class="dropdown-item" href="#">Edit recipe</a>
+        <a class="dropdown-item" routerLink="edit">Edit recipe</a>
         <a class="dropdown-item" href="#">elete recipe</a>
       </div>
     </div>
@@ -27,8 +27,5 @@
       </a>
     </ul>
   </mat-card-content>
-  <mat-card-footer>
-    <a mat-button color="primary" routerLink="edit">Edit</a>
-  </mat-card-footer>
 </mat-card>
 <ng-template #noRecipe>No recipe found</ng-template>

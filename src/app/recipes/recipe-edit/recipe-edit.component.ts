@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../recipe.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {RecipeService} from '../../services/recipe.service';
 
 @Component({
@@ -10,14 +10,35 @@ import {RecipeService} from '../../services/recipe.service';
 })
 export class RecipeEditComponent implements OnInit {
   recipe: Recipe;
+  editMode: boolean;
+  id: number;
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService) {
+  constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) {
 
 
   }
 
   ngOnInit() {
-    this.recipe = this.recipeService.getRecipeById('1');
+    this.route.params.subscribe((params: Params) => {
+      const id = params['id'];
+      this.editMode = id != null;
+      if (this.editMode) {
+
+        this.recipe = this.recipeService.getRecipeById(+params['id']);
+      } else {
+        this.recipe = new Recipe(null, 'New Recipe', 'New description', null, []);
+      }
+    });
   }
 
+  submit() {
+    this.recipeService.updateRecipe(this.recipe);
+    if (this.editMode) {
+
+      this.router.navigate(['../'], {relativeTo: this.route});
+    } else {
+      this.router.navigate(['../', this.recipe.id], {relativeTo: this.route});
+
+    }
+  }
 }

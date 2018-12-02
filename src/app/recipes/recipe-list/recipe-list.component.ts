@@ -1,5 +1,5 @@
-import {RecipeService} from './../../services/recipe.service';
-import {Recipe} from './../recipe.model';
+import {RecipeService} from '../../services/recipe.service';
+import {Recipe} from '../recipe.model';
 import {Component, OnInit} from '@angular/core';
 
 @Component({
@@ -15,8 +15,14 @@ export class RecipeListComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.recipes = this.recipeService.getRecipes();
+    this.recipeService.onUpdateRecipe.subscribe(() => {
+      this.recipes = this.recipeService.getRecipes();
+
+    });
   }
 
 
 }
+
