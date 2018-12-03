@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Recipe} from '../recipe.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {RecipeService} from '../../services/recipe.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -11,6 +12,8 @@ import {RecipeService} from '../../services/recipe.service';
 export class RecipeEditComponent implements OnInit {
   recipe: Recipe;
   editMode: boolean;
+  @ViewChild('form')
+  form: NgForm;
 
   constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) {
   }
@@ -29,6 +32,11 @@ export class RecipeEditComponent implements OnInit {
   }
 
   submit() {
+    if (this.form.valid) {
+      console.log(this.form.errors);
+      return false;
+    }
+
     this.recipeService.updateRecipe(this.recipe);
     if (this.editMode) {
 
@@ -38,4 +46,6 @@ export class RecipeEditComponent implements OnInit {
 
     }
   }
+
+
 }
