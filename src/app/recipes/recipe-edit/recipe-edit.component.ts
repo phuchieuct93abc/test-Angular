@@ -11,11 +11,8 @@ import {RecipeService} from '../../services/recipe.service';
 export class RecipeEditComponent implements OnInit {
   recipe: Recipe;
   editMode: boolean;
-  id: number;
 
   constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) {
-
-
   }
 
   ngOnInit() {
@@ -26,7 +23,7 @@ export class RecipeEditComponent implements OnInit {
 
         this.recipe = this.recipeService.getRecipeById(+params['id']);
       } else {
-        this.recipe = new Recipe(null, 'New Recipe', 'New description', null, []);
+        this.recipe = new Recipe(null, null, null, null, []);
       }
     });
   }
