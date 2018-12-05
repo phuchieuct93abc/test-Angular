@@ -27,4 +27,11 @@ export class IngredientService {
     this.ingredientUpdated.next(this.getIngredient());
   }
 
+  removeIngredient(ingredient: Ingredient) {
+    console.log(this.ingredients.indexOf(ingredient));
+    this.ingredients = this.ingredients.filter(i => i !== ingredient);
+    // this.ingredients.splice(this.ingredients.indexOf(selectedIngredient), /**/1);
+    this.ingredientUpdated.next(this.ingredients.slice());
+  }
+
 }

@@ -1,6 +1,6 @@
-import { IngredientService } from './../services/ingredient.service';
-import { Ingredient } from './../shared/ingredient.model';
-import { Component, OnInit } from '@angular/core';
+import {IngredientService} from './../services/ingredient.service';
+import {Ingredient} from './../shared/ingredient.model';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-shopping-list',
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingListComponent implements OnInit {
 
-  ingredient: Ingredient = new Ingredient('', 0);
+  selectedIngredient: Ingredient = new Ingredient('', 0);
   ingredients: Ingredient[];
   constructor(private ingredientService: IngredientService) {
   }
@@ -19,17 +19,11 @@ export class ShoppingListComponent implements OnInit {
   }
 
   onSelecteIngredient(ingredient: Ingredient) {
-    this.ingredient = ingredient;
-  }
-  ingredientAdded(newIngredient: Ingredient) {
-    this.ingredients.push(newIngredient);
-  }
-  ingredientDeleted(deletedIngredient: Ingredient) {
-    const index = this.ingredients.indexOf(deletedIngredient);
-    this.ingredients.splice(index, 1);
-
+    this.selectedIngredient = ingredient;
   }
 
-
+  onClear() {
+    this.selectedIngredient = null;
+  }
 
 }

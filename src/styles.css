@@ -29,6 +29,10 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   margin-bottom: 0;
 }
 
+.mat-form-field {
+  width: 100%;
+}
+
 html, body {
   height: 100%;
 }
