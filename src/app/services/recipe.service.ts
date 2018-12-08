@@ -2,6 +2,7 @@ import {Recipe} from '../recipes/recipe.model';
 import {Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {Subject} from 'rxjs';
+import * as cloneDeep from 'lodash/cloneDeep';
 
 @Injectable({providedIn: 'root'})
 export class RecipeService {
@@ -16,12 +17,12 @@ export class RecipeService {
   public onUpdateRecipe = new Subject<Recipe>();
 
   getRecipes() {
-    return this.recipes.slice();
+    return cloneDeep(this.recipes);
   }
 
   getRecipeById(id: number) {
 
-    return {...this.getRecipes().find(recipe => recipe.id === id)};
+    return cloneDeep(this.getRecipes().find(recipe => recipe.id === id));
   }
 
   updateRecipe(recipe: Recipe) {
