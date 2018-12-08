@@ -27,10 +27,13 @@ export class IngredientService {
   }
 
   addIngredient(ingredient: Ingredient) {
-
-    const nextId = this.getIngredient().reduce((accumulator, currentValue) => Math.max(accumulator, currentValue.id), 0) + 1;
+    const nextId = this.getNextId();
     ingredient.id = nextId;
     this.ingredients.push(ingredient);
+  }
+
+  getNextId() {
+    return this.getIngredient().reduce((accumulator, currentValue) => Math.max(accumulator, currentValue.id), 0) + 1;
   }
 
   editIngredient(ingredient: Ingredient) {
@@ -40,7 +43,7 @@ export class IngredientService {
   }
 
   addIngredients(ingredients: Ingredient[]) {
-    this.ingredients.push(...ingredients);
+    ingredients.forEach(i => this.updateIngredient(i));
     this.ingredientUpdated.next(this.getIngredient());
   }
 
@@ -49,10 +52,9 @@ export class IngredientService {
   }
 
   removeIngredient(ingredient: Ingredient) {
-    console.log(this.ingredients.indexOf(ingredient));
     this.ingredients = this.ingredients.filter(i => i !== ingredient);
-    // this.ingredients.splice(this.ingredients.indexOf(selectedIngredient), /**/1);
     this.ingredientUpdated.next(this.ingredients.slice());
   }
+
 
 }

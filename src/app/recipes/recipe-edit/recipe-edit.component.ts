@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Recipe} from '../recipe.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {RecipeService} from '../../services/recipe.service';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -11,7 +12,7 @@ import {RecipeService} from '../../services/recipe.service';
 export class RecipeEditComponent implements OnInit {
   recipe: Recipe;
   editMode: boolean;
-
+  myForm: FormGroup;
   constructor(private route: ActivatedRoute, private recipeService: RecipeService, private router: Router) {
   }
 
@@ -28,7 +29,8 @@ export class RecipeEditComponent implements OnInit {
     });
   }
 
-  submit() {
+
+  onSubmit() {
     this.recipeService.updateRecipe(this.recipe);
     if (this.editMode) {
 
