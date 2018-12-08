@@ -1,6 +1,7 @@
 import {IngredientService} from './../services/ingredient.service';
 import {Ingredient} from './../shared/ingredient.model';
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-shopping-list',
@@ -9,21 +10,15 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ShoppingListComponent implements OnInit {
 
-  selectedIngredient: Ingredient = new Ingredient('', 0);
   ingredients: Ingredient[];
-  constructor(private ingredientService: IngredientService) {
+
+  constructor(private ingredientService: IngredientService, private router: Router, private route: ActivatedRoute) {
   }
+
   ngOnInit(): void {
     this.ingredients = this.ingredientService.getIngredient();
     this.ingredientService.ingredientUpdated.subscribe(ingredients => this.ingredients = ingredients);
   }
 
-  onSelecteIngredient(ingredient: Ingredient) {
-    this.selectedIngredient = ingredient;
-  }
-
-  onClear() {
-    this.selectedIngredient = null;
-  }
 
 }

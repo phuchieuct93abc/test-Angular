@@ -1,59 +1,71 @@
-import {IngredientService} from './../../services/ingredient.service';
-import {Ingredient} from './../../shared/ingredient.model';
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
+import {IngredientService} from '../../services/ingredient.service';
+import {Ingredient} from '../../shared/ingredient.model';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.css']
 })
-export class ShoppingEditComponent implements OnInit, OnChanges {
-  @Input() ingredient: Ingredient;
-  @Output() ingredientCleared = new EventEmitter<Ingredient>();
+export class ShoppingEditComponent implements OnInit {
 
 
   @ViewChild('form')
   form: NgForm;
+  isEditMode = false;
+  ingredient: Ingredient;
+  ingredientId: number;
 
-  constructor(private ingredientService: IngredientService) {
+  constructor(private ingredientService: IngredientService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
-
-  }
-
-  onDelete() {
-    this.ingredientService.removeIngredient(this.ingredient);
-    this.ingredient = null;
-    this.form.resetForm();
-  }
-
-
-  onSubmit() {
-    const ingredientName = this.form.value.name;
-    const ingredientAmount = this.form.value.amount;
-    const newIngredient = new Ingredient(ingredientName, ingredientAmount);
-    this.ingredientService.addIngredient(newIngredient);
-    this.form.reset();
-  }
-
-  onClear() {
-    this.form.reset();
-    this.ingredientCleared.emit();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    setTimeout(() => {
-      if (changes['ingredient'].currentValue) {
-
-        this.form.setValue({
-          name: changes['ingredient'].currentValue.name,
-          amount: changes['ingredient'].currentValue.amount
+    this.route.params.subscribe(params => {
+      this.ingredient = this.ingredientService.getIngredientById(+params.id);
+      if (this.ingredient) {
+        this.isEditMode = true;
+        setTimeout(() => {
+          this.ingredientId = +params.id;
+          this.form.setValue({
+            name: this.ingredient.name,
+            amount: this.ingredient.amount,
+            // id: +params.id
+          });
         });
       }
 
     });
+  }
 
+
+  onDelete() {
+    this.ingredientService.removeIngredient(this.ingredient);
+    this.form.resetForm();
+    this.isEditMode = false;
+    this.navigateToShopping();
+
+  }
+
+
+  private navigateToShopping() {
+    this.router.navigate(['shopping']);
+  }
+
+  onSubmit() {
+    const value = this.form.value;
+    const newIngredient = new Ingredient(this.ingredientId, value.name, value.amount);
+    this.ingredientService.updateIngredient(newIngredient);
+    this.form.reset();
+    this.isEditMode = false;
+    this.navigateToShopping();
+
+  }
+
+  onClear() {
+    this.form.reset();
+    this.isEditMode = false;
+    this.navigateToShopping();
   }
 }

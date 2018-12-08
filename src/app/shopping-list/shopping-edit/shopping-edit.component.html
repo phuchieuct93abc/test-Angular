@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-12">
     <form #form="ngForm" (submit)="onSubmit()">
-
       <div class="row">
         <div class="col-3">
 
@@ -23,22 +22,12 @@
           </mat-form-field>
         </div>
 
-        <!--<div class="col-5 form-group">
-          <label for="name">Name
-            <input name="ingredientName" [(ngModel)]="selectedIngredient.name" type="text" id="name" class="form-control"
-              #nameInput>
-          </label>
-        </div>
-        <div class="col-2 form-group">
-          <label for="amount">Amount
-            <input type="number" id="amount" class="form-control"
-            #amountInput>
-          </label>
-        </div>-->
+
       </div>
       <div class="row">
         <div class="col-12">
-          <button mat-button color="primary" type="submit" [disabled]="form.invalid">Add</button>
+          <button mat-button color="primary" type="submit"
+                  [disabled]="form.invalid">{{ isEditMode ? "Edit" : "Add" }}</button>
           <button mat-button color="accent" (click)="onDelete()" type="button">Delete</button>
           <button mat-button color="warn" (click)="onClear()" type="button">Clear</button>
         </div>
