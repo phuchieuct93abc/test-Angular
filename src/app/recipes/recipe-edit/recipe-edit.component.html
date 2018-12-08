@@ -16,6 +16,39 @@
 
     </mat-form-field>
 
+    <div *ngFor="let ingredient of recipe.ingredients">
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field>
+            <input matInput ngModel
+                   type="text"
+                   name="name"
+                   required
+            >
+
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field>
+            <input matInput ngModel
+                   type="number"
+                   name="amount"
+                   required
+            >
+
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <a>
+
+        <mat-icon class="mat-18">delete</mat-icon>
+      </a>
+
+    </div>
     <button mat-raised-button (click)="submit()" color="primary">{{editMode ? 'Edit' : 'Create new recipe'}}</button>
   </div>
 
