@@ -28,7 +28,7 @@
         <div class="col-12">
           <button mat-button color="primary" type="submit"
                   [disabled]="form.invalid">{{ isEditMode ? "Edit" : "Add" }}</button>
-          <button mat-button color="accent" (click)="onDelete()" type="button">Delete</button>
+          <button mat-button color="accent" (click)="onDelete()" type="button" *ngIf="isEditMode">Delete</button>
           <button mat-button color="warn" (click)="onClear()" type="button">Clear</button>
         </div>
       </div>
